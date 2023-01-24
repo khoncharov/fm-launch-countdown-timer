@@ -41,16 +41,7 @@
   }
 }
 
-main::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(0deg, $very-dark-blue-1 0%, $very-dark-blue-2 100%);
-}
-
+main::before,
 main::after {
   content: "";
   position: absolute;
@@ -58,6 +49,13 @@ main::after {
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+main::before {
+  background: linear-gradient(0deg, $very-dark-blue-1 0%, $very-dark-blue-2 100%);
+}
+
+main::after {
   background-image: url("/bg-stars.svg");
   background-position: bottom 3rem center;
 }
