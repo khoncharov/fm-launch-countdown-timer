@@ -10,16 +10,16 @@
   <body>
     <div id="app">
       <main class="main">
-        <h1 class="mian__heading">We're launching soon</h1>
+        <h1 class="main__heading">We're launching soon</h1>
 
-        <ul class="clock__container">
+        <ul class="main__clock-container">
           <li class="digit">
             <div class="digit__backdrop">
               <div class="digit__next">
-                <span>24</span>
+                <span>--</span>
               </div>
               <div class="digit__flip"></div>
-              <div class="digit__prev">23</div>
+              <div class="digit__prev">--</div>
             </div>
             <span class="digit__label">Days</span>
           </li>
@@ -27,23 +27,55 @@
           <li class="digit">
             <div class="digit__backdrop">
               <div class="digit__next">
-                <span>24</span>
+                <span>--</span>
               </div>
               <div class="digit__flip"></div>
-              <div class="digit__prev">23</div>
+              <div class="digit__prev">--</div>
             </div>
             <span class="digit__label">Hours</span>
           </li>
+
+          <li class="digit">
+            <div class="digit__backdrop">
+              <div class="digit__next">
+                <span>--</span>
+              </div>
+              <div class="digit__flip"></div>
+              <div class="digit__prev">--</div>
+            </div>
+            <span class="digit__label">Minutes</span>
+          </li>
+
+          <li class="digit">
+            <div class="digit__backdrop">
+              <div class="digit__next">
+                <span>--</span>
+              </div>
+              <div class="digit__flip"></div>
+              <div class="digit__prev">--</div>
+            </div>
+            <span class="digit__label">Seconds</span>
+          </li>
         </ul>
+
+        <div class="main__horizon-haze"></div>
       </main>
 
       <footer class="footer">
-        <div class="footer__background-2"></div>
-        <div class="footer__background-1"></div>
         <div class="footer__content">
-          <a href="#">FE</a>
-          <button type="submit">SE</button>
-          <a href="#">GH</a>
+          <div class="link__container">
+            <a
+              class="link icon-fe"
+              title="Challenge by frontendmentor.io"
+              href="https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-"
+            ></a>
+            <button class="link icon-settings" title="Settings" type="button"></button>
+            <a
+              class="link icon-gh"
+              title="My github page"
+              href="https://github.com/khoncharov"
+            ></a>
+          </div>
         </div>
       </footer>
     </div>

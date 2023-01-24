@@ -6,18 +6,13 @@
   padding: 0;
 }
 
-*:focus-visible {
-  outline: 2px dashed $white;
-  outline-offset: 2px;
-}
-
 html {
   font-size: $font-size-basic;
   font-family: $font-family-content;
-  background-color: $white;
 }
 
 body {
+  background-color: $very-dark-blue-1;
   @include font();
 }
 
@@ -44,6 +39,5 @@ input {
 }
 
 #app {
-  position: relative;
   width: 100%;
 }
