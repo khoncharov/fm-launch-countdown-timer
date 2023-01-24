@@ -1,0 +1,19 @@
+.footer {
+  margin-inline: auto;
+  max-width: $width-mobile;
+  height: 19.7rem;
+  background-color: $color-bg;
+  background-image: url("/pattern-hills.svg");
+  overflow: hidden;
+
+  @media screen and (min-width: $width-switch-point) {
+    max-width: $width-desktop;
+  }
+
+  &__content {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
