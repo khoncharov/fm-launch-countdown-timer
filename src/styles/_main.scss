@@ -2,11 +2,10 @@
   position: relative;
   margin-inline: auto;
   max-width: $width-mobile;
-  min-height: calc(100vh - $height-footer);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  min-height: 39rem;
+  height: calc(100vh - $height-footer);
+  display: grid;
+  grid-template-rows: 3fr 4fr;
 
   @media screen and (min-width: $width-switch-point) {
     max-width: $width-desktop;
@@ -14,10 +13,20 @@
 
   &__heading {
     z-index: 1;
+    grid-row: 1;
+    justify-self: center;
+    align-self: flex-end;
+    margin-bottom: 9.6rem;
+    font-size: 2.4rem;
+    letter-spacing: 0.7rem;
+    text-transform: uppercase;
   }
 
   &__clock-container {
     z-index: 1;
+    margin-top: 0.8rem;
+    grid-row: 2;
+    justify-self: center;
     display: flex;
     column-gap: 3.2rem;
   }
@@ -51,8 +60,4 @@ main::after {
   right: 0;
   background-image: url("/bg-stars.svg");
   background-position: bottom 3rem center;
-}
-
-.attribution {
-  color: red;
 }
