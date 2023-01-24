@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:focus-visible {
+  outline: 2px dashed $white;
+  outline-offset: 2px;
+}
+
+html {
+  font-size: $font-size-basic;
+  font-family: $font-family-content;
+  background-color: $white;
+}
+
+body {
+  @include font();
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: cover;
+}
+
+input {
+  outline: none;
+}
+
+#app {
+  position: relative;
+  width: 100%;
+}

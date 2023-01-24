@@ -1,0 +1,33 @@
+/* Typography */
+
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap");
+
+$font-family-content: "Rubik", sans-serif;
+$font-family-numbers: "Righteous", cursive;
+
+$font-size-basic: 10px;
+
+$font-weight-regular: 500;
+
+/* Layout */
+
+$width-mobile: 375px;
+$width-desktop: 1440px;
+$width-switch-point: 960px;
+
+/* Colors */
+
+$grayish-blue: hsl(237, 18%, 59%);
+$soft-red: hsl(345, 95%, 68%);
+
+// ### Neutral
+
+$white: #ffffff;
+$greyish-blue: #343650;
+$very-dark-blue-1: #1e1f29;
+$very-dark-blue-2: #191a24; /* (mostly black) */
+
+/* Transition time */
+
+$transition-x1: 0.2s;
