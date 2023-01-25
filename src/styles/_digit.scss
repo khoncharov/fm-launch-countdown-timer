@@ -8,6 +8,23 @@
     height: 15.2rem;
     background-color: $very-dark-blue-2;
     border-radius: 0.8rem;
+    /* flip bottom */
+    display: grid;
+    grid-template-rows: 0.2rem 7rem 0.05rem 7rem;
+  }
+
+  &__flip-top {
+    grid-row: 2/3;
+  }
+
+  &__flip-bottom {
+    grid-row: 4/5;
+    perspective: 50rem;
+  }
+
+  &__flip-bottom:hover &__bottom {
+    transform: rotateX(-20deg);
+    /* *** */
   }
 
   &__top,
@@ -18,6 +35,12 @@
     width: 14.8rem;
     height: 7rem;
     position: relative;
+    /* flip bottom */
+    transform-origin: top;
+    transform-style: preserve-3d;
+    transition-timing-function: ease-out;
+    transition: 0.4s;
+    /* *** */
   }
 
   &__top {
