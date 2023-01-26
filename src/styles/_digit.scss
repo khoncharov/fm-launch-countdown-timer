@@ -8,23 +8,52 @@
     height: 15.2rem;
     background-color: $very-dark-blue-2;
     border-radius: 0.8rem;
-    /* flip bottom */
     display: grid;
     grid-template-rows: 0.2rem 7rem 0.05rem 7rem;
   }
 
-  &__flip-top {
+  &__top-half-container {
     grid-row: 2/3;
+    position: relative;
+    perspective: 70rem;
   }
 
-  &__flip-bottom {
+  &__bottom-half-container {
     grid-row: 4/5;
-    perspective: 50rem;
+    position: relative;
+    perspective: 70rem;
   }
 
-  &__flip-bottom:hover &__bottom {
-    transform: rotateX(-20deg);
-    /* *** */
+  &__top-fix,
+  &__top-flip,
+  &__bottom-flip,
+  &__bottom-fix {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__top-flip {
+    transform: rotateX(0deg);
+    transform-style: preserve-3d;
+    transform-origin: bottom;
+    animation-name: top-half-rotation;
+    animation-timing-function: ease-in;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-play-state: paused;
+  }
+
+  &__bottom-flip {
+    transform: rotateX(87deg);
+    transform-style: preserve-3d;
+    transform-origin: top;
+    animation-name: bottom-half-rotation;
+    animation-timing-function: ease-out;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    animation-play-state: paused;
   }
 
   &__top,
@@ -35,12 +64,6 @@
     width: 14.8rem;
     height: 7rem;
     position: relative;
-    /* flip bottom */
-    transform-origin: top;
-    transform-style: preserve-3d;
-    transition-timing-function: ease-out;
-    transition: 0.4s;
-    /* *** */
   }
 
   &__top {
@@ -105,4 +128,27 @@
   width: 100%;
   height: 1.5rem;
   border-top: 0.1rem solid rgba(34, 35, 47, 0.45);
+}
+
+@keyframes top-half-rotation {
+  0% {
+    transform: rotateX(0deg);
+  }
+
+  100% {
+    transform: rotateX(-85deg);
+    filter: brightness(0.3);
+  }
+}
+
+@keyframes bottom-half-rotation {
+  0% {
+    transform: rotateX(88deg);
+    filter: brightness(1.8);
+  }
+
+  100% {
+    filter: brightness(1);
+    transform: rotateX(0deg);
+  }
 }
