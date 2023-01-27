@@ -19,13 +19,13 @@
                 <!-- FIX -->
                 <div class="digit__top-fix">
                   <div class="digit__top">
-                    <span class="number-top">12</span>
+                    <span class="number-top" id="day-top-fix">F-</span>
                   </div>
                 </div>
                 <!-- FLIP -->
-                <div class="digit__top-flip">
+                <div class="digit__top-flip" id="day-top">
                   <div class="digit__top">
-                    <span class="number-top">12</span>
+                    <span class="number-top" id="day-top-flip">-R</span>
                   </div>
                 </div>
               </div>
@@ -33,14 +33,14 @@
               <div class="digit__bottom-half-container">
                 <!-- FIX -->
                 <div class="digit__bottom-fix">
-                  <div class="digit__bottom" >
-                    <span class="number-bottom">12</span>
+                  <div class="digit__bottom">
+                    <span class="number-bottom" id="day-bottom-fix">F-</span>
                   </div>
                 </div>
                 <!-- FLIP -->
-                <div class="digit__bottom-flip">
+                <div class="digit__bottom-flip" id="day-bottom">
                   <div class="digit__bottom">
-                    <span class="number-bottom">12</span>
+                    <span class="number-bottom" id="day-bottom-flip">-R</span>
                   </div>
                 </div>
               </div>
@@ -69,7 +69,7 @@
               <div class="digit__bottom-half-container">
                 <!-- FIX -->
                 <div class="digit__bottom-fix">
-                  <div class="digit__bottom" >
+                  <div class="digit__bottom">
                     <span class="number-bottom">12</span>
                   </div>
                 </div>
@@ -105,7 +105,7 @@
               <div class="digit__bottom-half-container">
                 <!-- FIX -->
                 <div class="digit__bottom-fix">
-                  <div class="digit__bottom" >
+                  <div class="digit__bottom">
                     <span class="number-bottom">12</span>
                   </div>
                 </div>
@@ -141,7 +141,7 @@
               <div class="digit__bottom-half-container">
                 <!-- FIX -->
                 <div class="digit__bottom-fix">
-                  <div class="digit__bottom" >
+                  <div class="digit__bottom">
                     <span class="number-bottom">12</span>
                   </div>
                 </div>
@@ -155,6 +155,7 @@
             </div>
             <span class="digit__label">Seconds</span>
           </li>
+        </ul>
 
         <div class="main__horizon-haze"></div>
       </main>
@@ -167,7 +168,12 @@
               title="Challenge by frontendmentor.io"
               href="https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-"
             ></a>
-            <button class="link icon-settings" title="Settings" type="button"></button>
+            <button
+              class="link icon-settings"
+              title="Settings"
+              type="button"
+              id="open-settings-btn"
+            ></button>
             <a
               class="link icon-gh"
               title="My github page"
@@ -176,6 +182,10 @@
           </div>
         </div>
       </footer>
+
+      <dialog class="settings" id="settings-dialog">
+        <input type="datetime-local" />
+      </dialog>
     </div>
 
     <script type="module" src="./src/main.ts"></script>
