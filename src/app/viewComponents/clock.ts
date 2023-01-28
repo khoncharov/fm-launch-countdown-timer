@@ -1,10 +1,13 @@
 import { MS_PER_SECOND, TIME_CHECK_TIMEOUT } from '../const';
+import Board from './board';
 import { getTargetTime, timeStampConverter } from './time-utils';
 
 export class Clock {
-  targetTime: number;
+  public isRunning: boolean = false;
 
-  isRunning: boolean = false;
+  private board = new Board();
+
+  private targetTime: number;
 
   private memo: string = '';
 
@@ -19,15 +22,16 @@ export class Clock {
       this.isRunning = true;
 
       const initDiff = this.targetTime - new Date().getTime() + MS_PER_SECOND;
-      // invoke board animation
-      console.log(timeStampConverter(initDiff).join('-'));
+
+      this.memo = timeStampConverter(initDiff).join('-');
+      this.board.setInitial(this.memo);
 
       this.timerId = setTimeout(this.timeoutHandler.bind(this), TIME_CHECK_TIMEOUT);
     }
   }
 
   stop(): void {
-    if (this.timerId) {
+    if (this.isRunning) {
       clearTimeout(this.timerId);
       this.isRunning = false;
     }
@@ -36,15 +40,13 @@ export class Clock {
   private timeoutHandler(): void {
     const diff = this.targetTime - new Date().getTime();
 
-    console.log(diff);
-
     if (diff > 0) {
       const timeChanged = timeStampConverter(diff).join('-') !== this.memo;
 
       if (timeChanged) {
         this.memo = timeStampConverter(diff).join('-');
-        // invoke board animation
-        console.log(this.memo);
+
+        this.board.showNext(this.memo);
       }
 
       this.timerId = setTimeout(this.timeoutHandler.bind(this), TIME_CHECK_TIMEOUT);
