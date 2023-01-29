@@ -29,3 +29,5 @@ export const DEFAULT_TIME_SHIFT: TimeShift = {
 export const INIT_SETTINGS_VALUE = '0';
 
 export const LS_TARGET_TIME_NAME = 'target-time';
+
+export const ANIMATION_DURATION = 800;

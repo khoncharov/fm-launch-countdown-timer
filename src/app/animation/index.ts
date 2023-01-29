@@ -1,14 +1,14 @@
-type DrawFunc = (progress: number) => void;
+import { Digit } from '../components/digits';
 
 const arc = (timeFraction: number): number => {
   return 1 - Math.sin(Math.acos(timeFraction));
 };
 
-const animateFunction = (
+export const animateFunction = (
   time: number,
   start: number,
   duration: number,
-  drawFunc: DrawFunc,
+  digits: Digit[],
 ) => {
   let timeFraction = (time - start) / duration;
   if (timeFraction > 1) {
@@ -17,19 +17,13 @@ const animateFunction = (
 
   const progress = arc(timeFraction);
 
-  drawFunc(progress);
+  digits.forEach((digit) => {
+    digit.redraw(progress);
+  });
 
   if (timeFraction < 1) {
     requestAnimationFrame((time) => {
-      animateFunction(time, start, duration, drawFunc);
+      animateFunction(time, start, duration, digits);
     });
   }
-};
-
-export const makeAnimation = (duration: number, drawFunc: DrawFunc): void => {
-  let start = performance.now();
-
-  requestAnimationFrame((time) => {
-    animateFunction(time, start, duration, drawFunc);
-  });
 };

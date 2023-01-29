@@ -6,14 +6,15 @@ export enum DigitName {
 }
 
 export class Digit {
-  public prevValue: string = '';
+  private memoValue: string = '';
+  private nextValue: string = '';
 
-  public cardTop: HTMLDivElement;
-  public cardBottom: HTMLDivElement;
-  public numTopFix: HTMLDivElement;
-  public numTopFlip: HTMLDivElement;
-  public numBottomFix: HTMLDivElement;
-  public numBottomFlip: HTMLDivElement;
+  private cardTop: HTMLDivElement;
+  private cardBottom: HTMLDivElement;
+  private numTopFix: HTMLDivElement;
+  private numTopFlip: HTMLDivElement;
+  private numBottomFix: HTMLDivElement;
+  private numBottomFlip: HTMLDivElement;
 
   constructor(name: string) {
     this.cardTop = document.querySelector(`#${name}-top`) as HTMLDivElement;
@@ -24,18 +25,29 @@ export class Digit {
     this.numBottomFlip = document.querySelector(`#${name}-bottom-flip`) as HTMLDivElement;
   }
 
-  setPrev(value: string): void {
+  setInit(value: string): void {
+    this.memoValue = value;
     this.numTopFlip.textContent = value;
     this.numBottomFlip.textContent = value;
-    this.prevValue = value;
-  }
-
-  setNext(value: string): void {
     this.numTopFix.textContent = value;
     this.numBottomFix.textContent = value;
   }
 
-  isChanged(value: string): boolean {
-    return value !== this.prevValue;
+  setNext(value: string): void {
+    this.nextValue = value;
+  }
+
+  isChanged(): boolean {
+    return this.nextValue !== this.memoValue;
+  }
+
+  saveNext(): void {
+    this.memoValue = this.nextValue;
+  }
+
+  redraw(progress: number): void {
+    if (progress === 1) {
+      this.saveNext();
+    }
   }
 }
