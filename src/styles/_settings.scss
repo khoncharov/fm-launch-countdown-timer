@@ -72,6 +72,7 @@
 
   &__date {
     display: flex;
+    min-height: 10rem;
     align-items: center;
     text-align: end;
     color: $aqua;
