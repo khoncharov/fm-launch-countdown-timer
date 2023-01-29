@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frontend Mentor | Launch countdown timer</title>
   </head>
@@ -170,9 +170,9 @@
             ></a>
             <button
               class="link icon-settings"
-              title="Settings"
+              title="Open settings"
               type="button"
-              id="open-settings-btn"
+              id="settings-btn-open"
             ></button>
             <a
               class="link icon-gh"
@@ -184,7 +184,57 @@
       </footer>
 
       <dialog class="settings" id="settings-dialog">
-        <input type="datetime-local" />
+        <form class="settings__form" novalidate autocomplete="off">
+          <fieldset class="settings__fieldset">
+            <legend class="settings__title">Setup new date</legend>
+            <div class="wrapper">
+              <label class="settings__caption" for="settings-day">Days</label>
+              <input
+                class="settings__input"
+                id="settings-day"
+                type="number"
+                min="0"
+                max="99"
+                title="0 - 99"
+              />
+              <label class="settings__caption" for="settings-hour">Hours</label>
+              <input
+                class="settings__input"
+                id="settings-hour"
+                type="number"
+                min="0"
+                max="23"
+                title="0 - 23"
+              />
+              <label class="settings__caption" for="settings-minute">Minutes</label>
+              <input
+                class="settings__input"
+                id="settings-minute"
+                type="number"
+                min="0"
+                max="59"
+                title="0 - 59"
+              />
+              <label class="settings__caption" for="settings-second">Seconds</label>
+              <input
+                class="settings__input"
+                id="settings-second"
+                type="number"
+                min="0"
+                max="59"
+                title="0 - 59"
+              />
+              <p class="settings__caption">Final date</p>
+              <p class="settings__date" id="settings-date-time"></p>
+              <button class="settings__btn" type="button" id="settings-btn-cancel">
+                cancel
+              </button>
+              <button class="settings__btn" type="button" id="settings-btn-apply">
+                apply
+              </button>
+            </div>
+          </fieldset>
+        </form>
       </dialog>
     </div>
 
