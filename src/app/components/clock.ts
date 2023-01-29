@@ -16,12 +16,14 @@ export default class Clock {
   }
 
   start(): void {
-    const initDiff = this.targetTimestamp - new Date().getTime() + MS_PER_SECOND;
+    const diff = this.targetTimestamp - new Date().getTime();
 
-    this.memo = timestampToMemoString(initDiff);
-    this.board.setInitial(this.memo);
+    if (diff > 0) {
+      this.memo = timestampToMemoString(diff);
+      this.board.setInitial(this.memo);
 
-    this.timerId = setTimeout(this.timeoutHandler.bind(this), TIME_CHECK_TIMEOUT);
+      this.timerId = setTimeout(this.timeoutHandler.bind(this), TIME_CHECK_TIMEOUT);
+    }
   }
 
   private timeoutHandler(): void {
@@ -32,7 +34,6 @@ export default class Clock {
 
       if (timeChanged) {
         this.memo = timestampToMemoString(diff);
-
         this.board.showNext(this.memo);
       }
 

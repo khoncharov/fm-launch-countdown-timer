@@ -26,6 +26,13 @@ export default class Board {
   showNext(data: string): void {
     const [d, h, m, s] = parseTimeToDigitValues(data);
 
-    console.log('>', d, h, m, s);
+    this.dayDigit.setPrev(d);
+    this.dayDigit.setNext(d);
+    this.hourDigit.setPrev(h);
+    this.hourDigit.setNext(h);
+    this.minDigit.setPrev(m);
+    this.minDigit.setNext(m);
+    this.secDigit.setPrev(s);
+    this.secDigit.setNext(s);
   }
 }
