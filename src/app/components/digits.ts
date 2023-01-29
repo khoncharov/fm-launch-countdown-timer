@@ -50,12 +50,14 @@ export class Digit {
   }
 
   redraw(progress: number): void {
-    this.cardBottomFix.style.filter = `brightness(${1 - progress * 0.6})`;
-
     if (progress < 0.5) {
       this.cardTop.style.transform = `rotateX(${progress * 2 * -90}deg)`;
       this.cardTop.style.filter = `brightness(${1 - progress})`;
       this.numTopFix.textContent = this.nextValue;
+    }
+
+    if (progress >= 0.2) {
+      this.cardBottomFix.style.filter = `brightness(${1.2 - progress})`;
     }
 
     if (progress >= 0.5) {
