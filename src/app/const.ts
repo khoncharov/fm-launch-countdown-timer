@@ -30,4 +30,4 @@ export const INIT_SETTINGS_VALUE = '0';
 
 export const LS_TARGET_TIME_NAME = 'target-time';
 
-export const ANIMATION_DURATION = 800;
+export const ANIMATION_DURATION = 900;

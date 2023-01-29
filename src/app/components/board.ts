@@ -24,8 +24,6 @@ export default class Board {
   showNext(data: string): void {
     const [d, h, m, s] = parseTimeToDigitValues(data);
 
-    console.log('>>>', d, h, m, s); // DEBUG -------------------------
-
     this.dayDigit.setNext(d);
     this.hourDigit.setNext(h);
     this.minDigit.setNext(m);

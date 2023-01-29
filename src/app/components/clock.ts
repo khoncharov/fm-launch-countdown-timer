@@ -16,7 +16,7 @@ export default class Clock {
   }
 
   start(): void {
-    const timeLeft = this.targetTimestamp - new Date().getTime();
+    const timeLeft = this.targetTimestamp - new Date().getTime() + MS_PER_SECOND;
 
     if (timeLeft > 0) {
       this.memo = timestampToMemoString(timeLeft);

@@ -11,6 +11,8 @@ export class Digit {
 
   private cardTop: HTMLDivElement;
   private cardBottom: HTMLDivElement;
+  private cardBottomFix: HTMLDivElement;
+
   private numTopFix: HTMLDivElement;
   private numTopFlip: HTMLDivElement;
   private numBottomFix: HTMLDivElement;
@@ -19,6 +21,8 @@ export class Digit {
   constructor(name: string) {
     this.cardTop = document.querySelector(`#${name}-top`) as HTMLDivElement;
     this.cardBottom = document.querySelector(`#${name}-bottom`) as HTMLDivElement;
+    this.cardBottomFix = document.querySelector(`#${name}-bottom-0`) as HTMLDivElement;
+
     this.numTopFix = document.querySelector(`#${name}-top-fix`) as HTMLDivElement;
     this.numTopFlip = document.querySelector(`#${name}-top-flip`) as HTMLDivElement;
     this.numBottomFix = document.querySelector(`#${name}-bottom-fix`) as HTMLDivElement;
@@ -46,7 +50,27 @@ export class Digit {
   }
 
   redraw(progress: number): void {
+    this.cardBottomFix.style.filter = `brightness(${1 - progress * 0.6})`;
+
+    if (progress < 0.5) {
+      this.cardTop.style.transform = `rotateX(${progress * 2 * -90}deg)`;
+      this.cardTop.style.filter = `brightness(${1 - progress})`;
+      this.numTopFix.textContent = this.nextValue;
+    }
+
+    if (progress >= 0.5) {
+      this.numTopFlip.textContent = this.nextValue;
+      this.numBottomFlip.textContent = this.nextValue;
+      this.cardTop.style.transform = 'rotateX(0deg)';
+      this.cardTop.style.filter = 'brightness(1)';
+      this.cardBottom.style.transform = `rotateX(${87 - (progress - 0.5) * 2 * 87}deg)`;
+      this.cardBottom.style.filter = `brightness(${1.7 - progress * 0.7})`;
+    }
+
     if (progress === 1) {
+      this.numBottomFix.textContent = this.nextValue;
+      this.cardBottomFix.style.filter = `brightness(1)`;
+      this.cardBottom.style.transform = `rotateX(87deg)`;
       this.saveNext();
     }
   }
