@@ -30,7 +30,8 @@
   }
 
   &__caption {
-    padding-block: 1rem;
+    padding-block: 0.8rem;
+    line-height: 1.4;
   }
 
   &__input {
@@ -76,6 +77,7 @@
     color: $aqua;
     font-size: 1.4rem;
     letter-spacing: 0;
+    line-height: 1.4;
   }
 }
 
