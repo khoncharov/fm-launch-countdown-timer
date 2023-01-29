@@ -35,35 +35,21 @@
 
   &__top-flip {
     transform: rotateX(0deg);
-    transform-style: preserve-3d;
     transform-origin: bottom;
-    animation-name: top-half-rotation;
-    animation-timing-function: ease-in;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-    animation-play-state: paused;
   }
 
   &__bottom-flip {
     transform: rotateX(87deg);
-    transform-style: preserve-3d;
     transform-origin: top;
-    animation-name: bottom-half-rotation;
-    animation-timing-function: ease-out;
-    animation-duration: 1s;
-    animation-delay: 1s;
-    animation-iteration-count: 1;
-    animation-play-state: paused;
   }
 
   &__top,
   &__bottom {
-    font-family: $font-family-numbers;
-    font-size: 8.4rem;
-    color: $soft-red;
     width: 14.8rem;
     height: 7rem;
     position: relative;
+    font-family: $font-family-numbers;
+    @include font(8.4rem, $soft-red, 1, $font-weight-num);
   }
 
   &__top {
@@ -84,11 +70,9 @@
 
   &__label {
     margin-top: 1.9rem;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: $grayish-blue;
-    letter-spacing: 0.6rem;
     text-transform: uppercase;
+    letter-spacing: 0.6rem;
+    @include font(1.4rem, $grayish-blue, 1, $font-weight-bold);
   }
 }
 
@@ -102,7 +86,7 @@
 
 .number-top {
   top: 2.8rem;
-  opacity: 0.9;
+  filter: brightness(0.93);
 }
 
 .number-bottom {
@@ -128,27 +112,4 @@
   width: 100%;
   height: 1.5rem;
   border-top: 0.1rem solid rgba(34, 35, 47, 0.45);
-}
-
-@keyframes top-half-rotation {
-  0% {
-    transform: rotateX(0deg);
-  }
-
-  100% {
-    transform: rotateX(-85deg);
-    filter: brightness(0.3);
-  }
-}
-
-@keyframes bottom-half-rotation {
-  0% {
-    transform: rotateX(88deg);
-    filter: brightness(1.8);
-  }
-
-  100% {
-    filter: brightness(1);
-    transform: rotateX(0deg);
-  }
 }
