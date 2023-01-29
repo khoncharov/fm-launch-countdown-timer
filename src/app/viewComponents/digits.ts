@@ -6,6 +6,8 @@ export enum DigitName {
 }
 
 export class Digit {
+  public prevValue: string = '';
+
   public cardTop: HTMLDivElement;
   public cardBottom: HTMLDivElement;
   public numTopFix: HTMLDivElement;
@@ -25,10 +27,15 @@ export class Digit {
   setPrev(value: string): void {
     this.numTopFlip.textContent = value;
     this.numBottomFlip.textContent = value;
+    this.prevValue = value;
   }
 
   setNext(value: string): void {
     this.numTopFix.textContent = value;
     this.numBottomFix.textContent = value;
+  }
+
+  isChanged(value: string): boolean {
+    return value !== this.prevValue;
   }
 }

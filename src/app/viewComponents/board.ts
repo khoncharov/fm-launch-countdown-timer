@@ -1,4 +1,5 @@
 import { Digit, DigitName } from './digits';
+import { parseTimeToDigitValues } from '../utils';
 
 export default class Board {
   private dayDigit = new Digit(DigitName.DAY);
@@ -10,7 +11,7 @@ export default class Board {
   private secDigit = new Digit(DigitName.SECOND);
 
   setInitial(data: string) {
-    const [d, h, m, s] = data.split('-').map((i) => i.padStart(2, '0'));
+    const [d, h, m, s] = parseTimeToDigitValues(data);
 
     this.dayDigit.setPrev(d);
     this.dayDigit.setNext(d);
@@ -23,6 +24,8 @@ export default class Board {
   }
 
   showNext(data: string): void {
-    console.log('>', data);
+    const [d, h, m, s] = parseTimeToDigitValues(data);
+
+    console.log('>', d, h, m, s);
   }
 }

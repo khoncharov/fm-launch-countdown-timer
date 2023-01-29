@@ -1,23 +1,36 @@
-import { clockService } from './viewComponents/clock';
+import { LS_TARGET_TIME_NAME, TimeShift } from './const';
+import { getTargetTimestamp } from './utils';
+import Clock from './viewComponents/clock';
+import PageView from './viewComponents/page-view';
 
-class PageService {
-  private clock = clockService;
+class PageService extends PageView {
+  private clock: Clock;
 
-  constructor() {}
+  constructor() {
+    super();
+
+    this.clock = new Clock(this.targetTimestamp);
+  }
 
   init(): void {
     this.clock.start();
 
-    const setupDialog = document.querySelector('#settings-dialog') as HTMLDialogElement;
-    const setupBtn = document.querySelector('#open-settings-btn') as HTMLButtonElement;
-    setupBtn.addEventListener('click', () => {
-      // setupDialog.showModal();
+    this.btnSettingsApply.addEventListener('click', () => {
+      const timeShift: TimeShift = {
+        days: Number(this.inputDay.value),
+        hours: Number(this.inputHour.value),
+        minutes: Number(this.inputMinute.value),
+        seconds: Number(this.inputSecond.value),
+      };
 
-      if (this.clock.isRunning) {
-        this.clock.stop();
-      } else {
-        this.clock.start();
-      }
+      this.targetTimestamp = getTargetTimestamp(timeShift);
+      localStorage.setItem(LS_TARGET_TIME_NAME, this.targetTimestamp.toString());
+
+      this.settings.close();
+
+      this.clock.stop();
+      this.clock = new Clock(this.targetTimestamp);
+      this.clock.start();
     });
   }
 }

@@ -1,4 +1,5 @@
 export const TIME_CHECK_TIMEOUT = 50;
+export const SETTINGS_UPDATE_TIMEOUT = 200;
 
 export const MAX_DAYS = 99;
 export const MAX_HOURS = 23;
@@ -24,3 +25,7 @@ export const DEFAULT_TIME_SHIFT: TimeShift = {
   minutes: 56,
   seconds: 0,
 };
+
+export const INIT_SETTINGS_VALUE = '0';
+
+export const LS_TARGET_TIME_NAME = 'target-time';

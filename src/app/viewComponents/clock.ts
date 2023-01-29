@@ -1,50 +1,37 @@
 import { MS_PER_SECOND, TIME_CHECK_TIMEOUT } from '../const';
+import { timestampToMemoString } from '../utils';
 import Board from './board';
-import { getTargetTime, timeStampConverter } from './time-utils';
 
-export class Clock {
-  public isRunning: boolean = false;
-
+export default class Clock {
   private board = new Board();
-
-  private targetTime: number;
 
   private memo: string = '';
 
   private timerId: number = 0;
 
-  constructor() {
-    this.targetTime = Number(localStorage.getItem('target-time')) || getTargetTime();
+  private targetTimestamp: number;
+
+  constructor(targetTimestamp: number) {
+    this.targetTimestamp = targetTimestamp;
   }
 
   start(): void {
-    if (!this.isRunning) {
-      this.isRunning = true;
+    const initDiff = this.targetTimestamp - new Date().getTime() + MS_PER_SECOND;
 
-      const initDiff = this.targetTime - new Date().getTime() + MS_PER_SECOND;
+    this.memo = timestampToMemoString(initDiff);
+    this.board.setInitial(this.memo);
 
-      this.memo = timeStampConverter(initDiff).join('-');
-      this.board.setInitial(this.memo);
-
-      this.timerId = setTimeout(this.timeoutHandler.bind(this), TIME_CHECK_TIMEOUT);
-    }
-  }
-
-  stop(): void {
-    if (this.isRunning) {
-      clearTimeout(this.timerId);
-      this.isRunning = false;
-    }
+    this.timerId = setTimeout(this.timeoutHandler.bind(this), TIME_CHECK_TIMEOUT);
   }
 
   private timeoutHandler(): void {
-    const diff = this.targetTime - new Date().getTime();
+    const diff = this.targetTimestamp - new Date().getTime();
 
     if (diff > 0) {
-      const timeChanged = timeStampConverter(diff).join('-') !== this.memo;
+      const timeChanged = timestampToMemoString(diff) !== this.memo;
 
       if (timeChanged) {
-        this.memo = timeStampConverter(diff).join('-');
+        this.memo = timestampToMemoString(diff);
 
         this.board.showNext(this.memo);
       }
@@ -52,6 +39,8 @@ export class Clock {
       this.timerId = setTimeout(this.timeoutHandler.bind(this), TIME_CHECK_TIMEOUT);
     }
   }
-}
 
-export const clockService = new Clock();
+  stop(): void {
+    clearTimeout(this.timerId);
+  }
+}
