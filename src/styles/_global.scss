@@ -38,6 +38,14 @@ input {
   outline: none;
 }
 
+fieldset {
+  border: none;
+}
+
+legend {
+  padding-inline: 0;
+}
+
 #app {
   width: 100%;
   position: relative;

@@ -1,0 +1,99 @@
+.settings {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  width: 28rem;
+  background-color: $greyish-blue;
+  color: $soft-red;
+  border: none;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.08rem;
+
+  &__form {
+    padding: 2rem;
+  }
+
+  &__fieldset {
+    display: flex;
+    place-content: center;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: bold;
+    padding-block: 0.4rem 1.6rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__caption {
+    padding-block: 1rem;
+  }
+
+  &__input {
+    width: 8rem;
+    height: 3rem;
+    text-align: center;
+    border: none;
+    border-radius: 0.8rem;
+    background-color: $very-dark-blue-2;
+    color: $white;
+    font: inherit;
+    justify-self: flex-end;
+  }
+
+  &__btn {
+    margin-top: 2rem;
+    height: 3rem;
+    width: 8rem;
+    background-color: $grayish-blue;
+    font: inherit;
+
+    border-radius: 0.8rem;
+    cursor: pointer;
+    transition: $transition-x1;
+  }
+
+  &__btn:hover {
+    background-color: $white;
+  }
+
+  &__btn:active {
+    background-color: $soft-red;
+  }
+
+  &__btn:focus-visible {
+    background-color: $white;
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+    text-align: end;
+    color: $aqua;
+    font-size: 1.4rem;
+    letter-spacing: 0;
+  }
+}
+
+#settings-btn-apply {
+  justify-self: flex-end;
+}
+
+.settings::backdrop {
+  background-color: rgba($very-dark-blue-2, 0.5);
+}
+
+.wrapper {
+  display: grid;
+  width: 80%;
+  grid-template-columns: 2fr 3fr;
+}
+
+*:focus-visible {
+  outline: 0.2rem dashed $soft-red;
+  outline-offset: 0.2rem;
+}
