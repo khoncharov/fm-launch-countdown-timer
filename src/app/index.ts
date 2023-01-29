@@ -1,7 +1,7 @@
 import { LS_TARGET_TIME_NAME, TimeShift } from './const';
 import { getTargetTimestamp } from './utils';
-import Clock from './viewComponents/clock';
-import PageView from './viewComponents/page-view';
+import Clock from './components/clock';
+import PageView from './components/page-view';
 
 class PageService extends PageView {
   private clock: Clock;
