@@ -1,4 +1,4 @@
-export const TIME_CHECK_TIMEOUT = 50;
+export const CHECK_TIMEOUT = 50;
 export const SETTINGS_UPDATE_TIMEOUT = 200;
 
 export const MAX_DAYS = 99;

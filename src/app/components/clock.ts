@@ -1,4 +1,4 @@
-import { MS_PER_SECOND, TIME_CHECK_TIMEOUT } from '../const';
+import { MS_PER_SECOND, CHECK_TIMEOUT } from '../const';
 import { timestampToMemoString } from '../utils';
 import Board from './board';
 
@@ -22,7 +22,7 @@ export default class Clock {
       this.memo = timestampToMemoString(timeLeft);
       this.board.setInitial(this.memo);
 
-      this.timerId = setTimeout(this.timeoutHandler.bind(this), TIME_CHECK_TIMEOUT);
+      this.timerId = setTimeout(this.timeoutHandler.bind(this), CHECK_TIMEOUT);
     }
   }
 
@@ -37,7 +37,7 @@ export default class Clock {
         this.board.showNext(this.memo);
       }
 
-      this.timerId = setTimeout(this.timeoutHandler.bind(this), TIME_CHECK_TIMEOUT);
+      this.timerId = setTimeout(this.timeoutHandler.bind(this), CHECK_TIMEOUT);
     }
   }
 
