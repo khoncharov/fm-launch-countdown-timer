@@ -2,7 +2,7 @@
 
 This is a solution to the [Launch countdown timer](https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-) challenge on `FrontendMentor.io` .
 
-- Solution deploy [link](https://luxury-mandazi-867465.netlify.app)
+- Solution deploy [link](https://stalwart-cassata-aec584.netlify.app)
 
 ## Overview
 
