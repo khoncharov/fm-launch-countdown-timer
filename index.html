@@ -3,8 +3,218 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Frontend Mentor | Launch countdown timer</title>
   </head>
-  <body></body>
+  <body>
+    <div id="app">
+      <main class="main">
+        <h1 class="main__heading">We're launching soon</h1>
+
+        <ul class="main__clock-container">
+          <li class="digit">
+            <div class="digit__container">
+              <div class="digit__top-half-container">
+                <div class="digit__top-fix">
+                  <div class="digit__top">
+                    <span class="number-top" id="day-top-fix">00</span>
+                  </div>
+                </div>
+                <div class="digit__top-flip" id="day-top">
+                  <div class="digit__top">
+                    <span class="number-top" id="day-top-flip">00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="digit__bottom-half-container">
+                <div class="digit__bottom-fix" id="day-bottom-0">
+                  <div class="digit__bottom">
+                    <span class="number-bottom" id="day-bottom-fix">00</span>
+                  </div>
+                </div>
+                <div class="digit__bottom-flip" id="day-bottom">
+                  <div class="digit__bottom">
+                    <span class="number-bottom" id="day-bottom-flip">00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="digit__label">Days</span>
+          </li>
+
+          <li class="digit">
+            <div class="digit__container">
+              <div class="digit__top-half-container">
+                <div class="digit__top-fix">
+                  <div class="digit__top">
+                    <span class="number-top" id="hour-top-fix">00</span>
+                  </div>
+                </div>
+                <div class="digit__top-flip" id="hour-top">
+                  <div class="digit__top">
+                    <span class="number-top" id="hour-top-flip">00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="digit__bottom-half-container">
+                <div class="digit__bottom-fix" id="hour-bottom-0">
+                  <div class="digit__bottom">
+                    <span class="number-bottom" id="hour-bottom-fix">00</span>
+                  </div>
+                </div>
+                <div class="digit__bottom-flip" id="hour-bottom">
+                  <div class="digit__bottom">
+                    <span class="number-bottom" id="hour-bottom-flip">00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="digit__label">Hours</span>
+          </li>
+
+          <li class="digit">
+            <div class="digit__container">
+              <div class="digit__top-half-container">
+                <div class="digit__top-fix">
+                  <div class="digit__top">
+                    <span class="number-top" id="minute-top-fix">00</span>
+                  </div>
+                </div>
+                <div class="digit__top-flip" id="minute-top">
+                  <div class="digit__top">
+                    <span class="number-top" id="minute-top-flip">00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="digit__bottom-half-container">
+                <div class="digit__bottom-fix" id="minute-bottom-0">
+                  <div class="digit__bottom">
+                    <span class="number-bottom" id="minute-bottom-fix">00</span>
+                  </div>
+                </div>
+                <div class="digit__bottom-flip" id="minute-bottom">
+                  <div class="digit__bottom">
+                    <span class="number-bottom" id="minute-bottom-flip">00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="digit__label">Minutes</span>
+          </li>
+
+          <li class="digit">
+            <div class="digit__container">
+              <div class="digit__top-half-container">
+                <div class="digit__top-fix">
+                  <div class="digit__top">
+                    <span class="number-top" id="second-top-fix">00</span>
+                  </div>
+                </div>
+                <div class="digit__top-flip" id="second-top">
+                  <div class="digit__top">
+                    <span class="number-top" id="second-top-flip">00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="digit__bottom-half-container">
+                <div class="digit__bottom-fix" id="second-bottom-0">
+                  <div class="digit__bottom">
+                    <span class="number-bottom" id="second-bottom-fix">00</span>
+                  </div>
+                </div>
+                <div class="digit__bottom-flip" id="second-bottom">
+                  <div class="digit__bottom">
+                    <span class="number-bottom" id="second-bottom-flip">00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="digit__label">Seconds</span>
+          </li>
+        </ul>
+
+        <div class="main__horizon-haze"></div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer__content">
+          <div class="link__container">
+            <a
+              class="link icon-fe"
+              title="Challenge by frontendmentor.io"
+              href="https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-"
+            ></a>
+            <button
+              class="link icon-settings"
+              title="Open settings"
+              type="button"
+              id="settings-btn-open"
+            ></button>
+            <a
+              class="link icon-gh"
+              title="My github page"
+              href="https://github.com/khoncharov"
+            ></a>
+          </div>
+        </div>
+      </footer>
+
+      <dialog class="settings" id="settings-dialog">
+        <form class="settings__form" novalidate autocomplete="off">
+          <fieldset class="settings__fieldset">
+            <legend class="settings__title">Setup new date</legend>
+            <div class="wrapper">
+              <label class="settings__caption" for="settings-day">Days</label>
+              <input
+                class="settings__input"
+                id="settings-day"
+                type="number"
+                min="0"
+                max="99"
+                title="0 - 99"
+              />
+              <label class="settings__caption" for="settings-hour">Hours</label>
+              <input
+                class="settings__input"
+                id="settings-hour"
+                type="number"
+                min="0"
+                max="23"
+                title="0 - 23"
+              />
+              <label class="settings__caption" for="settings-minute">Minutes</label>
+              <input
+                class="settings__input"
+                id="settings-minute"
+                type="number"
+                min="0"
+                max="59"
+                title="0 - 59"
+              />
+              <label class="settings__caption" for="settings-second">Seconds</label>
+              <input
+                class="settings__input"
+                id="settings-second"
+                type="number"
+                min="0"
+                max="59"
+                title="0 - 59"
+              />
+              <p class="settings__caption">Final date</p>
+              <p class="settings__date" id="settings-date-time"></p>
+              <button class="settings__btn" type="button" id="settings-btn-cancel">
+                cancel
+              </button>
+              <button class="settings__btn" type="button" id="settings-btn-apply">
+                apply
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </dialog>
+    </div>
+
+    <script type="module" src="./src/main.ts"></script>
+  </body>
 </html>

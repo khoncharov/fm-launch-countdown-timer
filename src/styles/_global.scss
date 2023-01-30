@@ -1,0 +1,52 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $font-size-basic;
+  font-family: $font-family-content;
+}
+
+body {
+  background-color: $very-dark-blue-2;
+  @include font();
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: cover;
+}
+
+input {
+  outline: none;
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  padding-inline: 0;
+}
+
+#app {
+  width: 100%;
+  position: relative;
+}
