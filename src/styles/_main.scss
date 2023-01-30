@@ -37,15 +37,15 @@
 
   &__clock-container {
     z-index: 1;
-    margin-top: 0.8rem;
+    margin-top: 2.8rem;
     grid-row: 2;
     justify-self: center;
     display: flex;
-    column-gap: 3.2rem;
-    display: none; // -------
+    column-gap: 1.6rem;
 
     @media screen and (min-width: $width-switch-point) {
-      display: flex; // -----------
+      margin-top: 0.8rem;
+      column-gap: 3.2rem;
     }
   }
 

@@ -4,12 +4,19 @@
   align-items: center;
 
   &__container {
-    width: 14.8rem;
-    height: 15.2rem;
+    width: 7rem;
+    height: 7.2rem;
     background-color: $very-dark-blue-2;
-    border-radius: 0.8rem;
     display: grid;
-    grid-template-rows: 0.2rem 7rem 0.05rem 7rem;
+    border-radius: 0.4rem;
+    grid-template-rows: 0.2rem 3.3rem 0.1rem 3.3rem;
+
+    @media screen and (min-width: $width-switch-point) {
+      border-radius: 0.8rem;
+      width: 14.8rem;
+      height: 15.2rem;
+      grid-template-rows: 0.2rem 7rem 0.1rem 7rem;
+    }
   }
 
   &__top-half-container {
@@ -34,45 +41,67 @@
   }
 
   &__top-flip {
+    display: none;
     transform: rotateX(0deg);
     transform-origin: bottom;
   }
 
   &__bottom-flip {
-    transform: rotateX(87deg);
+    display: none;
+    transform: rotateX(89deg);
     transform-origin: top;
+
+    @media screen and (min-width: $width-switch-point) {
+      transform: rotateX(87deg);
+    }
   }
 
   &__top,
   &__bottom {
-    width: 14.8rem;
-    height: 7rem;
+    width: 7rem;
+    height: 3.3rem;
     position: relative;
     font-family: $font-family-numbers;
-    @include font(8.4rem, $soft-red, 1, $font-weight-num);
+    @include font(3.5rem, $soft-red, 1, $font-weight-num);
+
+    @media screen and (min-width: $width-switch-point) {
+      width: 14.8rem;
+      height: 7rem;
+      @include font(8.4rem, $soft-red, 1, $font-weight-num);
+    }
   }
 
   &__top {
     mask-image: url("/clock/tab-top.svg");
     mask-repeat: no-repeat;
+    mask-size: contain;
     -webkit-mask-image: url("/clock/tab-top.svg");
     -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
     background-color: $greyish-blue;
   }
 
   &__bottom {
     mask-image: url("/clock/tab-bottom.svg");
     mask-repeat: no-repeat;
+    mask-size: contain;
     -webkit-mask-image: url("/clock/tab-bottom.svg");
     -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
     background-color: $greyish-blue;
   }
 
   &__label {
-    margin-top: 1.9rem;
+    margin-top: 1.2rem;
     text-transform: uppercase;
-    letter-spacing: 0.6rem;
-    @include font(1.4rem, $grayish-blue, 1, $font-weight-bold);
+    letter-spacing: 0.3rem;
+    @include font(0.8rem, $grayish-blue, 1, $font-weight-bold);
+
+    @media screen and (min-width: $width-switch-point) {
+      margin-top: 1.9rem;
+      letter-spacing: 0.6rem;
+      @include font(1.4rem, $grayish-blue, 1, $font-weight-bold);
+    }
   }
 }
 
@@ -85,31 +114,50 @@
 }
 
 .number-top {
-  top: 2.8rem;
+  top: 1.5rem;
   filter: brightness(0.93);
+
+  @media screen and (min-width: $width-switch-point) {
+    top: 2.8rem;
+  }
 }
 
 .number-bottom {
-  bottom: 2.7rem;
+  bottom: 1.6rem;
+
+  @media screen and (min-width: $width-switch-point) {
+    bottom: 2.7rem;
+  }
 }
 
 .number-top::after {
   content: "";
   position: absolute;
-  top: -2.8rem;
+  top: -1.5rem;
   left: 0;
   background-color: rgba(0, 0, 0, 0.15);
   width: 100%;
-  height: 7rem;
+  height: 3.3rem;
+
+  @media screen and (min-width: $width-switch-point) {
+    top: -2.8rem;
+    height: 7rem;
+  }
 }
 
 .number-bottom::after {
   content: "";
   position: absolute;
-  bottom: 2.8rem;
+  bottom: 0.9rem;
   left: 0;
-  background-color: rgba(138, 132, 177, 0.03);
+  background-color: rgba(138, 132, 177, 0.04);
   width: 100%;
-  height: 1.5rem;
-  border-top: 0.1rem solid rgba(34, 35, 47, 0.45);
+  height: 0.8rem;
+  border-top: 0.05rem solid rgba(34, 35, 47, 0.45);
+
+  @media screen and (min-width: $width-switch-point) {
+    bottom: 2.8rem;
+    height: 1.5rem;
+    border-top: 0.1rem solid rgba(34, 35, 47, 0.45);
+  }
 }
