@@ -1,7 +1,7 @@
 import { Digit } from '../components/digits';
 
 const arc = (timeFraction: number): number => {
-  return 1 - Math.sin(Math.acos(timeFraction));
+  return Math.pow(timeFraction, 2);
 };
 
 export const animateFunction = (

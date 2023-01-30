@@ -51,28 +51,29 @@ export class Digit {
 
   redraw(progress: number): void {
     if (progress < 0.5) {
+      this.cardTop.style.display = 'block';
       this.cardTop.style.transform = `rotateX(${progress * 2 * -90}deg)`;
       this.cardTop.style.filter = `brightness(${1 - progress})`;
       this.numTopFix.textContent = this.nextValue;
     }
 
-    if (progress >= 0.2) {
-      this.cardBottomFix.style.filter = `brightness(${1.2 - progress})`;
+    if (progress >= 0.3) {
+      this.cardBottomFix.style.filter = `brightness(${1.3 - progress})`;
     }
 
     if (progress >= 0.5) {
+      this.cardTop.style.display = 'none';
       this.numTopFlip.textContent = this.nextValue;
       this.numBottomFlip.textContent = this.nextValue;
-      this.cardTop.style.transform = 'rotateX(0deg)';
-      this.cardTop.style.filter = 'brightness(1)';
-      this.cardBottom.style.transform = `rotateX(${87 - (progress - 0.5) * 2 * 87}deg)`;
+      this.cardBottom.style.display = 'block';
+      this.cardBottom.style.transform = `rotateX(${90 - (progress - 0.5) * 2 * 90}deg)`;
       this.cardBottom.style.filter = `brightness(${1.7 - progress * 0.7})`;
     }
 
     if (progress === 1) {
+      this.cardBottom.style.display = 'none';
       this.numBottomFix.textContent = this.nextValue;
-      this.cardBottomFix.style.filter = `brightness(1)`;
-      this.cardBottom.style.transform = `rotateX(87deg)`;
+      this.cardBottomFix.style.filter = 'brightness(1)';
       this.saveNext();
     }
   }
